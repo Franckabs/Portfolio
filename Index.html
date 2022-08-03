@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Franck Abs | Développeur front-end</title>
+    <!--Css-->
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="responsive.css">
+    <!--cdn-->
+    <script src="https://cdn.jsdelivr.net/npm/kursor@0.0.14/dist/kursor.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/kursor/dist/kursor.css">
+
+    <script>
+        var scrollElement = document.querySelector('#scroll');
+    
+    window.addEventListener('scroll', function(){
+      var height = document.body.scrollHeight - this.innerHeight;
+      var scrolledPixels = this.scrollY;
+      var width = ((scrolledPixels / height) * 100).toFixed(2);
+      scrollElement.style.width = width + '%';
+    });
+    </script>
+    
+    
+<script>
+    
+    var colors = new Array(
+      [62,35,255],
+      [60,255,60],
+      [255,35,98],
+      [45,175,230],
+      [255,0,255],
+      [255,128,0]);
+    
+    var step = 0;
+    //color table indices for: 
+    // current color left
+    // next color left
+    // current color right
+    // next color right
+    var colorIndices = [0,1,2,3];
+    
+    //transition speed
+    var gradientSpeed = 0.002;
+    
+    function updateGradient()
+    {
+      
+      if ( $===undefined ) return;
+      
+    var c0_0 = colors[colorIndices[0]];
+    var c0_1 = colors[colorIndices[1]];
+    var c1_0 = colors[colorIndices[2]];
+    var c1_1 = colors[colorIndices[3]];
+    
+    var istep = 1 - step;
+    var r1 = Math.round(istep * c0_0[0] + step * c0_1[0]);
+    var g1 = Math.round(istep * c0_0[1] + step * c0_1[1]);
+    var b1 = Math.round(istep * c0_0[2] + step * c0_1[2]);
+    var color1 = "rgb("+r1+","+g1+","+b1+")";
+    
+    var r2 = Math.round(istep * c1_0[0] + step * c1_1[0]);
+    var g2 = Math.round(istep * c1_0[1] + step * c1_1[1]);
+    var b2 = Math.round(istep * c1_0[2] + step * c1_1[2]);
+    var color2 = "rgb("+r2+","+g2+","+b2+")";
+    
+     $('#gradient').css({
+       background: "-webkit-gradient(linear, left top, right top, from("+color1+"), to("+color2+"))"}).css({
+        background: "-moz-linear-gradient(left, "+color1+" 0%, "+color2+" 100%)"});
+      
+      step += gradientSpeed;
+      if ( step >= 1 )
+      {
+        step %= 1;
+        colorIndices[0] = colorIndices[1];
+        colorIndices[2] = colorIndices[3];
+        
+        //pick two new target color indices
+        //do not pick the same as the current one
+        colorIndices[1] = ( colorIndices[1] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+        colorIndices[3] = ( colorIndices[3] + Math.floor( 1 + Math.random() * (colors.length - 1))) % colors.length;
+        
+      }
+    }
+    
+    setInterval(updateGradient,10);
+    </script>
+    
+    <script src="https://unpkg.com/scrollreveal"></script>
+        <script>
+            ScrollReveal({ reset: true });
+            ScrollReveal().reveal('#first', { delay: 300 });
+            ScrollReveal().reveal('.navbar', { delay: 600 });
+            ScrollReveal().reveal('.deux', { delay: 600 });
+            ScrollReveal().reveal('.card', { interval: 1, reset: true, desktop: true });
+    
+            var slideUp = {
+        distance: '150%',
+        origin: 'left',
+        opacity: 0.5,
+        delay: 200,
+                        };
+        ScrollReveal().reveal('.card', slideUp);
+        ScrollReveal().reveal('.icons', slideUp);
+       
+        var slideLeft = {
+        distance: '150%',
+        origin: 'bottom',
+        opacity: 0,
+        delay: 400,
+                        };
+        ScrollReveal().reveal('.liked', slideLeft);
+    
+        var slideImg = {
+        distance: '50%',
+        origin: 'right',
+        opacity: 0,
+        delay: 300,
+                        };
+        ScrollReveal().reveal('.image', slideImg);
+    
+        var slideOpa = {
+        opacity: 0,
+        delay: 100,
+                        };
+        ScrollReveal().reveal('.Opa', slideOpa);
+    
+    
+    
+    
+        </script>
+
+
+</head>
+<body >
+
+    <div class="navbar">
+        <a href="#home" class="logo"><img src="assets/image/logo.svg" alt=""></a>
+        <div class="nav">
+            <a class="resNav" href="#home">Home</a>
+            <a class="resNav" href="#about">A propos</a>
+            <a class="resNav" href="#cv">Mon cv</a>
+            <a class="resNav" href="#footer">Mes réseaux</a>
+            <a class="resNav" href="mailto:absdevcontact@gmail.com" class="contact">Contactez-moi 👋</a>
+        </div>
+       
+        
+    </div>
+
+    <div class="scroll" id="scroll"></div>
+
+    <div id="home" class="header">
+        
+
+        <a href="/" id="In" class="icons"><img src="assets/image/icons8-linkedin-entouré-64.png" alt=""></a>
+        <a href="/" id="git" class="icons"><img src="assets/image/icons8-github-48.png" alt=""></a>
+        <a href="/" id="Ins"  class="icons"><img src="assets/image/icons8-instagram-64.png" alt=""></a>
+
+
+
+
+        <div class="title">
+            <h1 id="first"><span>FRANCK</span><span>AGBESSI</span></h1>
+            <h2 class="deux">DEVELOPPEUR FRONT-END</h2>
+            <h3 class="deux">recherche alternance</h3>
+        </div>
+
+    </div>
+
+    <div id="about" class="about">
+        <div class="a-com"><p>A propos</p></div>
+
+        <div class="wrap">
+            <div class=" c-A left">
+                <p class="Opa">Je m'appelle franck agbessi, et j’ai suivi une formation  initiale  en tant qu' assistant architecte, ce qui m’a appris à être organisé, rigoureux et avoir l’esprit d’équipe, de collaboration. Suite à ce bac professionnelle obtenue, j’ai commencé un cursus dans l’informatique, et obtenu un DEUG dans ce domaine. 
+
+                    Ayant toujours été passionnée par la programmation orienté web, ce fut logique qu’après plusieurs années de travail dans le secteur privé, j’ai commencé à apprendre le langage web ( Html5, Css ..)  en autodidacte sur youtube. Après quelque mois, je me suis financer une certification chez Udemy ( développeur fullstack) et ensuite chez Openclassrooms ( initiation développeur front-end ).
+                    </p>
+            </div>
+            <div class=" c-A right">
+                <div class="image">
+                    <div class="img"></div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+
+    <div id="cv" class="cv">
+        <div class="a-com"><p>Formations</p></div>
+
+        <div class="form" >
+
+            <!---->
+            <div class="card">
+                <h1>Développeur front-end </h1>
+                <ul>
+                    <li># React Js</li>
+                    <li># Node js</li>
+                    <li># React native</li>
+                </ul>
+                <div class="card-wrap">
+                    <h1> <span>Openclassrooms</span>
+                        <img id="arrow" src="assets/image/icons8-chevron-droit-30.png"> 
+
+                    </h1>
+                    
+                </div>
+            </div>
+            <!---->
+            <div class="card">
+                <h1>Développeur fullstack</h1>
+                <ul>
+                    <li># html 5</li>
+                    <li># Css</li>
+                    <li># Php</li>
+                    <li># Javascript</li>
+                </ul>
+                <div class="card-wrap">
+                    <h1> <span>Udémy</span>
+                        <img id="arrow" src="assets/image/icons8-chevron-droit-30.png"> 
+                </div>
+            </div>
+            <!---->
+            <div class="card">
+            
+                <h1>Deug informatique</h1>
+                <ul>
+                    <li># Base de donnée</li>
+                    <li># Social</li>
+                    <li># Informatique</li>
+                </ul>
+                <div class="card-wrap">
+                    <h1> <span>UT2J</span>
+                        <img id="arrow" src="assets/image/icons8-chevron-droit-30.png"> 
+                </div>
+            </div>
+            <!---->
+            <div class="card">
+                <h1>Bac pro TBBA</h1>
+                <ul>
+                    <li># Plan 2D</li>
+                    <li># 3D</li>
+                    <li># Dessin</li>
+                    <li># Economie </li>
+                </ul>
+                <div class="card-wrap">
+                    <h1> <span>Urbain vitry</span>
+                        <img id="arrow" src="assets/image/icons8-chevron-droit-30.png"> 
+                </div>
+            </div>
+    
+
+        </div>
+     
+    </div>
+
+<div  class="cv">
+    <div class="a-com"><p>Expérience</p></div>
+
+    <div class="form" >
+
+        <!---->
+        <div class="card">
+            <h1>Chef de rang</h1>
+            <ul>
+                <li># Service</li>
+                <li># Prise de commande</li>
+                <li># Client</li>
+            </ul>
+            <div class="card-wrap">
+                <h1> <span>Chez ingall's</span>
+                    <img id="arrow" src="assets/image/icons8-chevron-droit-30.png"> 
+            
+            </div>
+        </div>
+        <!---->
+        <div class="card">
+            <h1>Livreur/Chauffeur</h1>
+            <ul>
+                <li># Livraison</li>
+                <li># Safety-first</li>
+                <li># Transport</li>
+            </ul>
+            <div class="card-wrap">
+                <h1> <span>Amazon</span>
+                    <img id="arrow" src="assets/image/icons8-chevron-droit-30.png"> 
+        </div>
+        </div>
+        <!---->
+        <div class="card">
+        
+            <h1>Employé polyvalent</h1>
+            <ul>
+                <li># Caissier</li>
+                <li># Encaissement</li>
+                <li># Audit</li>
+            </ul>
+            <div class="card-wrap">
+                <h1> <span>Carrefour city</span>
+                    <img id="arrow" src="assets/image/icons8-chevron-droit-30.png"> 
+        </div>
+        </div>
+        <!---->
+        <div class="card">
+            <h1>Employé polyvalent</h1>
+            <ul>
+                <li># Caissier</li>
+                <li># Encaissement</li>
+                <li># Audit</li>
+            </ul>
+            <div class="card-wrap">
+                <h1> <span>Cerise et potiron</span>
+                    <img id="arrow" src="assets/image/icons8-chevron-droit-30.png"> 
+        </div>
+        </div>
+
+
+    </div>
+ 
+</div>
+    
+    <div id="footer" class="footer">
+        <a class="liked" href="/">Linkedin</a>
+        <a class="liked" href="/">Github</a>
+        <a class="liked" href="/">Instagram</a>
+    </div>
+    
+</body>
+
+<script src="https://unpkg.com/kursor"></script>
+<script>
+    new kursor({
+        type: 1
+    })
+</script>
+
+
+
+
+
+</html>
