@@ -1,0 +1,161 @@
+@media screen and (max-width: 700px){
+
+
+
+*{
+    overflow-x: hidden;
+}
+
+.navbar{
+    width: 100%;
+    height: 10h;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: transparent;
+}
+.navbar .logo{
+    width: 100%;
+    height: 5vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar .nav{
+    display: none;
+}
+
+/*----header--*/
+
+.header{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+.header h1{
+    font-size: 45px;
+    font-weight: 900;
+}
+
+.header h2{
+    font-size: 25px;
+}
+
+.header h3{
+    font-size: 15px;
+}
+
+
+.header #In{
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+}
+
+.header #git{
+    position: absolute;
+    top: 300px;
+    left: 150px;
+}
+.header #Ins{
+    position: absolute;
+    bottom: 200px;
+    left: 300px;
+}
+
+/*----about--*/
+
+.about{
+    width: 100%;
+    height: 160vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.about .a-com{
+    height:10vh;
+}
+.about .wrap{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 200vh;
+}
+
+.about .wrap .right{
+    margin-top: 10px;
+    width: 100%;
+    height: 50vh;
+}
+.about .wrap .right .image{
+    width: 100%;
+    height: 100%;
+}
+.about .wrap .right .image{
+    width:100%;
+    height: 100%;
+    background-image: url('assets/image/IMG_2309.jpg');
+    background-position: center;
+    background-size: cover;
+    border-radius: 0;
+}
+.about .wrap .left{
+    margin-top: 10px;
+    width: 100%;
+    height: 100vh;
+}
+
+/*----cv--*/
+.cv .form .card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 15vh;
+
+}
+.cv .form .card h1{
+    width: 100%;
+    height: 50%;
+    font-size: 30px;
+}
+.cv .form .card ul{
+    flex-wrap: wrap;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+ 
+}
+
+.cv .form .card .card-wrap{
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.cv .form .card .card-wrap h1{
+   display: inline;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#arrow{
+    opacity: 1;
+    display: inline;
+    width: 25px;
+    height: 25px;
+    margin-left: 20px;
+}
+
+}
